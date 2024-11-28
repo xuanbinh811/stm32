@@ -1,6 +1,6 @@
 # Ignore thư mục settings và Debug trong test
-test/settings/
-test/Debug/
+application/settings/
+application/Debug/
 
 # Ignore các file dự án của IAR Embedded Workbench
 *.ewd
@@ -9,7 +9,7 @@ test/Debug/
 *.eww
 
 # Ignore thư mục metadata trong test
-test/.metadata/
+application/.metadata/
 
 # Ignore thư mục cấu hình của Visual Studio Code
 .vscode/

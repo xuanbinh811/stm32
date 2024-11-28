@@ -1,0 +1,221 @@
+###############################################################################
+#
+# IAR ELF Linker V9.60.3.422/W64 for ARM                  28/Nov/2024  17:11:10
+# Copyright 2007-2024 IAR Systems AB.
+#
+#    Output file  =
+#        C:\Users\fpt\OneDrive - Hanoi University of Science and
+#        Technology\hacker\stm32\stm32iar\test\Debug\Exe\test.out
+#    Map file     =
+#        C:\Users\fpt\OneDrive - Hanoi University of Science and
+#        Technology\hacker\stm32\stm32iar\test\Debug\List\test.map
+#    Command line =
+#        -f "C:\Users\fpt\OneDrive - Hanoi University of Science and
+#        Technology\hacker\stm32\stm32iar\test\Debug\Exe\test.out.rsp"
+#        ("C:\Users\fpt\OneDrive - Hanoi University of Science and
+#        Technology\hacker\stm32\stm32iar\test\Debug\Obj\brtos_3867995839707607519.dir\brots.o"
+#        "C:\Users\fpt\OneDrive - Hanoi University of Science and
+#        Technology\hacker\stm32\stm32iar\test\Debug\Obj\mid_1628371642073116930.dir\button.o"
+#        "C:\Users\fpt\OneDrive - Hanoi University of Science and
+#        Technology\hacker\stm32\stm32iar\test\Debug\Obj\driver_11944700488488147666.dir\gpio.o"
+#        "C:\Users\fpt\OneDrive - Hanoi University of Science and
+#        Technology\hacker\stm32\stm32iar\test\Debug\Obj\application_7220717732061272824.dir\main.o"
+#        --no_out_extension -o "C:\Users\fpt\OneDrive - Hanoi University of
+#        Science and Technology\hacker\stm32\stm32iar\test\Debug\Exe\test.out"
+#        --map "C:\Users\fpt\OneDrive - Hanoi University of Science and
+#        Technology\hacker\stm32\stm32iar\test\Debug\List\test.map" --config
+#        C:\iar\ewarm-9.60.3\arm/config/linker/ST/stm32f103x8.icf --semihosting
+#        --entry __iar_program_start --vfe --text_out locale --cpu=Cortex-M3
+#        --fpu=None) --dependencies=n "C:\Users\fpt\OneDrive - Hanoi University
+#        of Science and
+#        Technology\hacker\stm32\stm32iar\test\Debug\Exe\test.out.iar_deps"
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__CPP_Runtime   = 1
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because --advanced_heap
+was not specified and the application did not appear to
+be primarily optimized for speed.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at address 0x800'0000 { ro section .intvec };
+"P1":  place in [from 0x800'0000 to 0x800'ffff] { ro };
+define block CSTACK with size = 2K, alignment = 8 { };
+define block HEAP with size = 2K, alignment = 8 { };
+"P2":  place in [from 0x2000'0000 to 0x2000'4fff] {
+          rw, block CSTACK, block HEAP };
+
+  Section          Kind         Address  Alignment   Size  Object
+  -------          ----         -------  ---------   ----  ------
+"A0":                                                0x40
+  .intvec          ro code   0x800'0000          4   0x40  vector_table_M.o [6]
+                           - 0x800'0040              0x40
+
+"P1":                                               0x12c
+  .text            ro code   0x800'0040          4   0x58  main.o [1]
+  .text            ro code   0x800'0098          2   0x38  zero_init3.o [6]
+  .text            ro code   0x800'00d0          4   0x28  data_init.o [6]
+  .iar.init_table  const     0x800'00f8          4   0x10  - Linker created -
+  .text            ro code   0x800'0108          4   0x1e  cmain.o [6]
+  .text            ro code   0x800'0126          2    0x4  low_level_init.o [5]
+  .text            ro code   0x800'012a          2    0x4  exit.o [5]
+  .text            ro code   0x800'012e          2    0x2  vectortrap_M.o [6]
+  .text            ro code   0x800'0130          4    0xa  cexit.o [6]
+  .text            ro code   0x800'013c          4   0x14  exit.o [7]
+  .text            ro code   0x800'0150          4   0x1c  cstartup_M.o [6]
+  .rodata          const     0x800'016c               0x0  zero_init3.o [6]
+                           - 0x800'016c             0x12c
+
+"P2", part 1 of 2:                                    0x8
+  .bss             zero     0x2000'0000          4    0x4  main.o [1]
+  .bss             zero     0x2000'0004          4    0x4  main.o [1]
+                          - 0x2000'0008               0x8
+
+"P2", part 2 of 2:                                  0x800
+  CSTACK                    0x2000'0008          8  0x800  <Block>
+    CSTACK         uninit   0x2000'0008             0x800  <Block tail>
+                          - 0x2000'0808             0x800
+
+Unused ranges:
+
+         From           To    Size
+         ----           --    ----
+   0x800'016c   0x800'ffff  0xfe94
+  0x2000'0808  0x2000'4fff  0x47f8
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address      Size
+          -------      ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x8:
+          0x2000'0000   0x8
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module            ro code  ro data  rw data
+    ------            -------  -------  -------
+command line/config:
+    -------------------------------------------
+    Total:
+
+C:\Users\fpt\OneDrive - Hanoi University of Science and Technology\hacker\stm32\stm32iar\test\Debug\Obj\application_7220717732061272824.dir: [1]
+    main.o                 88                 8
+    -------------------------------------------
+    Total:                 88                 8
+
+C:\Users\fpt\OneDrive - Hanoi University of Science and Technology\hacker\stm32\stm32iar\test\Debug\Obj\brtos_3867995839707607519.dir: [2]
+    -------------------------------------------
+    Total:
+
+C:\Users\fpt\OneDrive - Hanoi University of Science and Technology\hacker\stm32\stm32iar\test\Debug\Obj\driver_11944700488488147666.dir: [3]
+    -------------------------------------------
+    Total:
+
+C:\Users\fpt\OneDrive - Hanoi University of Science and Technology\hacker\stm32\stm32iar\test\Debug\Obj\mid_1628371642073116930.dir: [4]
+    -------------------------------------------
+    Total:
+
+dl7M_tln.a: [5]
+    exit.o                  4
+    low_level_init.o        4
+    -------------------------------------------
+    Total:                  8
+
+rt7M_tl.a: [6]
+    cexit.o                10
+    cmain.o                30
+    cstartup_M.o           28
+    data_init.o            40
+    vector_table_M.o       64
+    vectortrap_M.o          2
+    zero_init3.o           56
+    -------------------------------------------
+    Total:                230
+
+shb_l.a: [7]
+    exit.o                 20
+    -------------------------------------------
+    Total:                 20
+
+    Gaps                    2
+    Linker created                  16    2'048
+-----------------------------------------------
+    Grand Total:          348       16    2'056
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address  Size  Type      Object
+-----                       -------  ----  ----      ------
+.iar.init_table$$Base    0x800'00f8         --   Gb  - Linker created -
+.iar.init_table$$Limit   0x800'0108         --   Gb  - Linker created -
+?main                    0x800'0109        Code  Gb  cmain.o [6]
+BusFault_Handler         0x800'012f        Code  Wk  vectortrap_M.o [6]
+CSTACK$$Base            0x2000'0008         --   Gb  - Linker created -
+CSTACK$$Limit           0x2000'0808         --   Gb  - Linker created -
+DebugMon_Handler         0x800'012f        Code  Wk  vectortrap_M.o [6]
+HardFault_Handler        0x800'012f        Code  Wk  vectortrap_M.o [6]
+MemManage_Handler        0x800'012f        Code  Wk  vectortrap_M.o [6]
+NMI_Handler              0x800'012f        Code  Wk  vectortrap_M.o [6]
+PendSV_Handler           0x800'012f        Code  Wk  vectortrap_M.o [6]
+Region$$Table$$Base      0x800'00f8         --   Gb  - Linker created -
+Region$$Table$$Limit     0x800'0108         --   Gb  - Linker created -
+SVC_Handler              0x800'012f        Code  Wk  vectortrap_M.o [6]
+SysTick_Handler          0x800'012f        Code  Wk  vectortrap_M.o [6]
+UsageFault_Handler       0x800'012f        Code  Wk  vectortrap_M.o [6]
+__cmain                  0x800'0109        Code  Gb  cmain.o [6]
+__exit                   0x800'013d  0x14  Code  Gb  exit.o [7]
+__iar_data_init3         0x800'00d1  0x28  Code  Gb  data_init.o [6]
+__iar_program_start      0x800'0151        Code  Gb  cstartup_M.o [6]
+__iar_zero_init3         0x800'0099  0x38  Code  Gb  zero_init3.o [6]
+__low_level_init         0x800'0127   0x4  Code  Gb  low_level_init.o [5]
+__vector_table           0x800'0000        Data  Gb  vector_table_M.o [6]
+_call_main               0x800'0115        Code  Gb  cmain.o [6]
+_exit                    0x800'0131        Code  Gb  cexit.o [6]
+a                       0x2000'0000   0x4  Data  Gb  main.o [1]
+exit                     0x800'012b   0x4  Code  Gb  exit.o [5]
+main                     0x800'0041  0x44  Code  Gb  main.o [1]
+valcrh                  0x2000'0004   0x4  Data  Gb  main.o [1]
+
+
+[1] = C:\Users\fpt\OneDrive - Hanoi University of Science and Technology\hacker\stm32\stm32iar\test\Debug\Obj\application_7220717732061272824.dir
+[2] = C:\Users\fpt\OneDrive - Hanoi University of Science and Technology\hacker\stm32\stm32iar\test\Debug\Obj\brtos_3867995839707607519.dir
+[3] = C:\Users\fpt\OneDrive - Hanoi University of Science and Technology\hacker\stm32\stm32iar\test\Debug\Obj\driver_11944700488488147666.dir
+[4] = C:\Users\fpt\OneDrive - Hanoi University of Science and Technology\hacker\stm32\stm32iar\test\Debug\Obj\mid_1628371642073116930.dir
+[5] = dl7M_tln.a
+[6] = rt7M_tl.a
+[7] = shb_l.a
+
+    348 bytes of readonly  code memory
+     16 bytes of readonly  data memory
+  2'056 bytes of readwrite data memory
+
+Errors: none
+Warnings: none
