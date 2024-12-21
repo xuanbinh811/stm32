@@ -28,9 +28,7 @@ GPIO_Status GPIO_Init(GPIO_Type GPIOx,GPIO_Pin pin,GPIO_Mode mode,GPIO_Option op
     case GPIO_G:
       baseaddress= GPIOG;
       RCC->RCC_APB2ENR.bit.IOPGEN=1;
-      break;
-    default:
-      return ERROR_GPIO;   
+      break; 
   }
   
   switch (pin){
@@ -79,9 +77,6 @@ GPIO_Status GPIO_Init(GPIO_Type GPIOx,GPIO_Pin pin,GPIO_Mode mode,GPIO_Option op
             baseaddress->GPIO_CRL.reg|=(uint32_t)(3<<(pin*4+2));
             break;
 
-        default:
-            return ERROR_GPIO;
-            break;
       }
       break;
     case Pin8: 
@@ -92,7 +87,7 @@ GPIO_Status GPIO_Init(GPIO_Type GPIOx,GPIO_Pin pin,GPIO_Mode mode,GPIO_Option op
     case Pin13: 
     case Pin14: 
     case Pin15: 
-      baseaddress->GPIO_CRH.reg &= ~(0xF << ((pin-8) * 4));
+      baseaddress->GPIO_CRH.reg &= ~(0xF << ((uint32_t)(pin - 8) * 4));
       baseaddress->GPIO_CRH.reg|=(uint32_t)(mode<<((pin-8)*4));
       switch (option) {
         case INPUT_Analog:
@@ -129,13 +124,9 @@ GPIO_Status GPIO_Init(GPIO_Type GPIOx,GPIO_Pin pin,GPIO_Mode mode,GPIO_Option op
             baseaddress->GPIO_CRH.reg|=(uint32_t)(3<<((pin-8)*4+2));
             break;
 
-        default:
-            return ERROR_GPIO;
-            break;
       }
       break;
-    default:
-      return ERROR_GPIO;   
+ 
   }
   return OK;
 }

@@ -1,13 +1,19 @@
 # Ignore thư mục settings và Debug trong test
 settings/
 Debug/
+# Bỏ qua tất cả các thư mục trong driver/inc
+driver/inc/*/
 
+# Không bỏ qua các tệp trong driver/inc
+!driver/inc/*.*
 # Ignore các file dự án của IAR Embedded Workbench
 *.ewd
 *.ewp
 *.ewt
 *.eww
-
+*.uvprojx
+*.uvoptx
+*.fpt
 # Ignore thư mục metadata trong test
 .metadata/
 

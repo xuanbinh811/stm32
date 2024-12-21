@@ -2,31 +2,53 @@
 #include "stm32f103c8.h"
 #include "gpio.h"
 #include "button.h"
-uint32_t a=0;
-int status=0;
-uint32_t *valcrh;
-int main()
-{
-     RCC->RCC_APB2ENR.bit.IOPCEN=1;
-     
-     
-    uint32_t addgpioc =0x40010800; //base add 
-    uint32_t addGPIOC_CRH =addgpioc+4;
-    valcrh=(uint32_t*)addGPIOC_CRH;
-    a=*valcrh;
-    *valcrh |= (0b01) << 20;
-    *valcrh &= ~(0b111 << 21);
-    a=*valcrh;
-    GPIOA->GPIO_ODR.reg |= (1 << 13);
-    while (1)
-    {
-
+#include "interrupt.h"
+#include "RCC.h"
+#include "i2c.h"
+#include "systick.h"
+#include "rcc_ds3231.h"
+static volatile uint32_t a=0;
+static volatile uint32_t b=0;
+Time_t time;
+Time_t time_update;
+uint8_t regAddr = 0x0; // Starting register for date
+uint8_t data[10];
+void delay_ms(uint32_t ms) {
+    volatile uint32_t i, j;
+    for (i = 0; i < ms; i++) {
+        for (j = 0; j < 4000; j++) {
+            __asm("NOP"); // Lệnh NOP để tránh tối ưu hóa
+        }
     }
-    
-   
 }
+void INTERRUPT_B15(){
+	delay(1000);
+	b++;
+}
+void INTERRUPT_A11(){
+	delay(1000);
+	a++;
+}
+int main()
+ {
+		time_update.second=10;
+	  time_update.minute=15;
+	  time_update.hour=1;
+		time.second = data[0];
+		time.minute = data[1];
+		time.hour = data[2];
+		time.date = data[3];
+	 //SysTick_Init();
+	 DS3231_Init(I2C1);
+	 //DS3231_SetTime(I2C1,&time_update);
 
-void delay_ms(uint32_t ms)
-{
-    for (uint32_t i = 0; i < ms * 1500; i++);
+	//(void)a;
+	//INTERRUPT_Init(GPIO_B,Pin15,INTERRUPT_B15);
+	//INTERRUPT_Init(GPIO_A,Pin7,INTERRUPT_A11);
+	while (1)
+	{
+			DS3231_GetTime(I2C1, &time);
+			delay_ms(100);
+		
+	}
 }
