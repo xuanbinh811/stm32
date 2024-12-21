@@ -12,9 +12,9 @@ driver/inc/RTE/
 *.ewp
 *.ewt
 *.eww
-*.uvprojx
-*.uvoptx
-*.fpt
+driver/inc/*.uvprojx
+driver/inc/*.uvoptx
+driver/inc/*.fpt
 # Ignore thư mục metadata trong test
 .metadata/
 
