@@ -3,7 +3,8 @@ settings/
 Debug/
 # Bỏ qua tất cả các thư mục trong driver/inc
 driver/inc/*/
-
+driver/inc/DebugConfig/
+driver/inc/RTE/
 # Không bỏ qua các tệp trong driver/inc
 !driver/inc/*.*
 # Ignore các file dự án của IAR Embedded Workbench
