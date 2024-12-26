@@ -1,5 +1,6 @@
 #include "systick.h" // Include the header file for SysTick functions and configurations
 // Function to initialize SysTick timer
+volatile uint64_t sysTickCounter45 = 0; 
 void SysTick_Init(void) {
 		uint32_t hclk = Get_HCLK();
     uint32_t ticks_per_ms = hclk / 1000; // S? chu k? trong 1ms
@@ -13,16 +14,16 @@ void SysTick_Init(void) {
 
 // SysTick interrupt handler
 void SysTick_Handler(void) {
-    sysTickCounter2++;  // Increment the millisecond counter on every interrupt
+    sysTickCounter45++;  // Increment the millisecond counter on every interrupt
 }
 
 // Function to return the number of milliseconds elapsed since the SysTick timer started
 uint64_t millis(void) {
-    return sysTickCounter2 ; // Return the millisecond counter value
+    return sysTickCounter45 ; // Return the millisecond counter value
 }
 
 // Function to implement a delay in milliseconds
-void delay(uint64_t delay) {
+void delay_ms(uint64_t delay) {
     uint64_t start = millis(); // Record the start time
     while ((millis() - start) < delay); // Wait until the specified delay has passed
 }

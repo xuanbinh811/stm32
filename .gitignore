@@ -1,6 +1,7 @@
 # Ignore thư mục settings và Debug trong test
 settings/
 Debug/
+FreeRTOS/
 # Bỏ qua tất cả các thư mục trong driver/inc
 driver/inc/*/
 driver/inc/DebugConfig/

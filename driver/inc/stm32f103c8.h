@@ -608,4 +608,50 @@ typedef struct
 // Defining base address for I2C1
 #define I2C1_BASE               (0x40005400U)     // Base address for I2C1
 #define I2C1                    ((I2C_TypeDef *)I2C1_BASE)  // I2C1 register structure
+
+///adc
+typedef struct {
+    volatile uint32_t SR;      // Status Register (0x00)
+    volatile uint32_t CR1;     // Control Register 1 (0x04)
+    volatile uint32_t CR2;     // Control Register 2 (0x08)
+    volatile uint32_t SMPR1;   // Sample Time Register 1 (0x0C)
+    volatile uint32_t SMPR2;   // Sample Time Register 2 (0x10)
+    volatile uint32_t JOFR1;   // Injected Channel Data Offset Register 1 (0x14)
+    volatile uint32_t JOFR2;   // Injected Channel Data Offset Register 2 (0x18)
+    volatile uint32_t JOFR3;   // Injected Channel Data Offset Register 3 (0x1C)
+    volatile uint32_t JOFR4;   // Injected Channel Data Offset Register 4 (0x20)
+    volatile uint32_t HTR;     // Higher Threshold Register (0x24)
+    volatile uint32_t LTR;     // Lower Threshold Register (0x28)
+    volatile uint32_t SQR1;    // Regular Sequence Register 1 (0x2C)
+    volatile uint32_t SQR2;    // Regular Sequence Register 2 (0x30)
+    volatile uint32_t SQR3;    // Regular Sequence Register 3 (0x34)
+    volatile uint32_t JSQR;    // Injected Sequence Register (0x38)
+    volatile uint32_t JDR1;    // Injected Data Register 1 (0x3C)
+    volatile uint32_t JDR2;    // Injected Data Register 2 (0x40)
+    volatile uint32_t JDR3;    // Injected Data Register 3 (0x44)
+    volatile uint32_t JDR4;    // Injected Data Register 4 (0x48)
+    volatile uint32_t DR;      // Regular Data Register (0x4C)
+} ADC_TypeDef;
+
+#define ADC1_BASE (0x40012400UL)
+#define ADC2_BASE (0x40012800UL)
+
+#define ADC1 ((ADC_TypeDef *) ADC1_BASE)
+#define ADC2 ((ADC_TypeDef *) ADC2_BASE)
+#define ADC_CR2_ADON_Pos                    (0U)                               
+#define ADC_CR2_ADON_Msk                    (0x1U << ADC_CR2_ADON_Pos)         /*!< 0x00000001 */
+#define ADC_CR2_ADON                        ADC_CR2_ADON_Msk
+#define ADC_CR2_CAL_Pos                     (2U)                               
+#define ADC_CR2_CAL_Msk                     (0x1U << ADC_CR2_CAL_Pos)          /*!< 0x00000004 */
+#define ADC_CR2_CAL                         ADC_CR2_CAL_Msk    
+#define ADC_CR2_SWSTART_Pos                 (22U)                              
+#define ADC_CR2_SWSTART_Msk                 (0x1U << ADC_CR2_SWSTART_Pos)      /*!< 0x00400000 */
+#define ADC_SR_EOS_Pos                      (1U)                               
+#define ADC_SR_EOS_Msk                      (0x1U << ADC_SR_EOS_Pos)           /*!< 0x00000002 */
+#define ADC_SR_EOS                          ADC_SR_EOS_Msk   
+#define ADC_CR2_SWSTART                     ADC_CR2_SWSTART_Msk      
+#define  ADC_SR_EOC                          (ADC_SR_EOS)
+#define ADC_SQR1_L_Pos                      (20U)                              
+#define ADC_SQR1_L_Msk                      (0xFU << ADC_SQR1_L_Pos)           /*!< 0x00F00000 */
+#define ADC_SQR1_L                          ADC_SQR1_L_Msk  
 #endif

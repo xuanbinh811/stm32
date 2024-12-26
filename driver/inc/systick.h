@@ -5,11 +5,11 @@
 #include "RCC.h"           // Include the RCC (Reset and Clock Control) header for clock settings
 
 // Volatile variable to hold the system tick count (in milliseconds)
-volatile uint64_t sysTickCounter2 = 0; 
+
 
 // Function prototypes for SysTick initialization, millis, and delay
 void SysTick_Init(void);          // Initialize SysTick timer
 uint64_t millis(void);            // Get the current system tick count in milliseconds
-void delay(uint64_t delay);  // Delay for a specified number of milliseconds
+void delay_ms(uint64_t delay);  // Delay for a specified number of milliseconds
 
 #endif  // __SYSTICK_H__
